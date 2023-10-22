@@ -1,3 +1,27 @@
+/**
+ * Controlador de Spring Boot para la gestión de información de cumpleaños.
+ *
+ * Este controlador proporciona una API RESTful para calcular la cantidad de días hasta el próximo cumpleaños
+ * a partir de la fecha de nacimiento proporcionada.
+ *
+ * Rutas y Métodos:
+ * - POST /birthday: Calcula la cantidad de días hasta el próximo cumpleaños. Se espera una solicitud con
+ *   un objeto BirthdayModel en el cuerpo del mensaje.
+ *
+ * Uso:
+ * Este controlador se utiliza para manejar solicitudes relacionadas con cumpleaños a través de una interfaz web o API.
+ *
+ * Métodos Importantes:
+ * - calculateDaysUntilNextBirthday: Este método toma un objeto BirthdayModel y devuelve la cantidad de días hasta
+ *   el próximo cumpleaños.
+ *
+ * Ejemplo de Uso:
+ * 1. Realiza una solicitud POST a la ruta "/birthday" con un objeto BirthdayModel en el cuerpo del mensaje para
+ *    calcular los días hasta el próximo cumpleaños.
+ *
+ * Autor: Javiera Gandarillas
+ * Fecha: 22-10-2023
+ */
 package com.birthday.springboot.projectapply.controller;
 
 
