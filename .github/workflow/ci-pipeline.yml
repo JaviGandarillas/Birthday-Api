@@ -1,0 +1,32 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Java
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+
+    - name: Build with Maven
+      run: mvn clean package
+
+    - name: Build Docker image
+      run: docker build -t javigandarillas/birthdayback${{ github.head_ref }} .
+
+    - name: Login to Docker Hub (o tu registro de contenedores)
+      run: docker login -u ${{ secrets.LOGIN_SECRET }} -p ${{ secrets.DOCKER_SECRET }}
+
+    - name: Push Docker image
+      run: docker push javigandarillas/birthdayback${{ github.head_ref }}
+
